@@ -1,16 +1,15 @@
 module.exports = {
-	webpack: (config, options) => {
-		config.module.rules.push({
-			test: /\.js$/,
-			use: [
-				options.defaultLoaders.eslint,
-				{
-					exclude: /node_modules/,
-					use: ['eslint-loader']
-				}
-			]
-		});
-
-		return config;
-	}
+  webpack: (config, { dev }) => {
+    if (dev) {
+      config.module.rules.push({
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: 'eslint-loader',
+        options: {
+          // eslint options (if necessary)
+        }
+      });
+    }
+    return config;
+  }
 };
