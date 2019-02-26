@@ -4,6 +4,7 @@
 node_modules/
 /stylesheets/.sass-cache
 dist/
+.next
 
 # misc
 .DS_Store
